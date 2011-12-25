@@ -1,5 +1,5 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: 7d411e45a6381dcab95db903cad76653) *)
+(* DO NOT EDIT (digest: 9caa296af9416cb3b8d3e329c5f27f36) *)
 module OASISGettext = struct
 # 21 "/Users/avsm/.odb/install-oasis/oasis-0.2.1~alpha1/src/oasis/OASISGettext.ml"
   
@@ -451,11 +451,7 @@ end
 
 open Ocamlbuild_plugin;;
 let package_default =
-  {
-     MyOCamlbuildBase.lib_ocaml = [("src/regexp", ["src"])];
-     lib_c = [];
-     flags = [];
-     }
+  {MyOCamlbuildBase.lib_ocaml = [("regexp", [])]; lib_c = []; flags = []; }
   ;;
 
 let dispatch_default = MyOCamlbuildBase.dispatch_default package_default;;

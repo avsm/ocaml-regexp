@@ -1,0 +1,13 @@
+OASISFormat: 0.2
+Name:        regexp
+Version:     1.0
+Synopsis:    Re-entrant regular expression library
+Authors:     Claude Marché, Raphael Proust
+License:     LGPL-2.0 with OCaml linking exception
+Plugins:     META (0.2)
+
+Library regexp
+  Path:       src
+  BuildTools: ocamlbuild
+  Modules: Regexp
+  

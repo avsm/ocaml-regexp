@@ -1,7 +1,7 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: 7d411e45a6381dcab95db903cad76653) *)
+(* DO NOT EDIT (digest: c08d35ad1a9a5149f77ad387619a9ef1) *)
 module OASISGettext = struct
-# 21 "/Users/avsm/.odb/install-oasis/oasis-0.2.1~alpha1/src/oasis/OASISGettext.ml"
+# 21 "/Users/avsm/src/darcs/oasis/src/oasis/OASISGettext.ml"
   
   let ns_ str =
     str
@@ -24,7 +24,7 @@ module OASISGettext = struct
 end
 
 module OASISExpr = struct
-# 21 "/Users/avsm/.odb/install-oasis/oasis-0.2.1~alpha1/src/oasis/OASISExpr.ml"
+# 21 "/Users/avsm/src/darcs/oasis/src/oasis/OASISExpr.ml"
   
   
   
@@ -115,7 +115,7 @@ end
 
 
 module BaseEnvLight = struct
-# 21 "/Users/avsm/.odb/install-oasis/oasis-0.2.1~alpha1/src/base/BaseEnvLight.ml"
+# 21 "/Users/avsm/src/darcs/oasis/src/base/BaseEnvLight.ml"
   
   module MapString = Map.Make(String)
   
@@ -212,7 +212,7 @@ end
 
 
 module MyOCamlbuildFindlib = struct
-# 21 "/Users/avsm/.odb/install-oasis/oasis-0.2.1~alpha1/src/plugins/ocamlbuild/MyOCamlbuildFindlib.ml"
+# 21 "/Users/avsm/src/darcs/oasis/src/plugins/ocamlbuild/MyOCamlbuildFindlib.ml"
   
   (** OCamlbuild extension, copied from 
     * http://brion.inria.fr/gallium/index.php/Using_ocamlfind_with_ocamlbuild
@@ -321,7 +321,7 @@ module MyOCamlbuildFindlib = struct
 end
 
 module MyOCamlbuildBase = struct
-# 21 "/Users/avsm/.odb/install-oasis/oasis-0.2.1~alpha1/src/plugins/ocamlbuild/MyOCamlbuildBase.ml"
+# 21 "/Users/avsm/src/darcs/oasis/src/plugins/ocamlbuild/MyOCamlbuildBase.ml"
   
   (** Base functions for writing myocamlbuild.ml
       @author Sylvain Le Gall
@@ -336,7 +336,7 @@ module MyOCamlbuildBase = struct
   type name = string 
   type tag = string 
   
-# 55 "/Users/avsm/.odb/install-oasis/oasis-0.2.1~alpha1/src/plugins/ocamlbuild/MyOCamlbuildBase.ml"
+# 55 "/Users/avsm/src/darcs/oasis/src/plugins/ocamlbuild/MyOCamlbuildBase.ml"
   
   type t =
       {
@@ -414,7 +414,7 @@ module MyOCamlbuildBase = struct
                    (* When ocaml link something that use the C library, then one
                       need that file to be up to date.
                     *)
-                   dep  ["link"; "ocaml"; "use_lib"^lib] 
+                   dep  ["compile"; "ocaml"; "use_lib"^lib] 
                      [dir/"lib"^lib^"."^(!Options.ext_lib)];
   
                    (* TODO: be more specific about what depends on headers *)
@@ -452,7 +452,7 @@ end
 open Ocamlbuild_plugin;;
 let package_default =
   {
-     MyOCamlbuildBase.lib_ocaml = [("src/regexp", ["src"])];
+     MyOCamlbuildBase.lib_ocaml = [("lib/regexp", ["lib"])];
      lib_c = [];
      flags = [];
      }
@@ -460,5 +460,6 @@ let package_default =
 
 let dispatch_default = MyOCamlbuildBase.dispatch_default package_default;;
 
+# 464 "myocamlbuild.ml"
 (* OASIS_STOP *)
 Ocamlbuild_plugin.dispatch dispatch_default;;

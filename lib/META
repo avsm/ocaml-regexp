@@ -1,6 +1,6 @@
 # OASIS_START
-# DO NOT EDIT (digest: b090955d6b4a4bb2fb68b4c7067842a3)
-version = "1.0"
+# DO NOT EDIT (digest: 872be58cceeeb0faa4c607c97518f2db)
+version = "0.9-dev"
 description = "Re-entrant regular expression library"
 archive(byte) = "regexp.cma"
 archive(native) = "regexp.cmxa"

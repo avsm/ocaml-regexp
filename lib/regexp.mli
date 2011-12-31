@@ -129,9 +129,10 @@ val list_matches : compiled_regexp -> string -> string list
 
 (** [split_delim cre s] evaluates to a list of string in which each element is a
     sub-string of the original one. Each two consecutive elements of the list of
-    sub-string was, in [s], separated by a word matched by [cre].
+    sub-string was, in [s], separated by a word matched by [cre]. If [filter_empty]
+    is true, then zero-length fragments are not included in the result list.
   *)
-val split_delim : compiled_regexp -> string -> string list
+val split_delim : ?filter_empty:bool -> compiled_regexp -> string -> string list
 
 (** [replace cre s by] replaces sub-strings of [s] matched by [cre] by [by].*)
 val replace : compiled_regexp -> string -> string -> string

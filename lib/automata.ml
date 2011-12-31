@@ -61,16 +61,41 @@ let split_strings auto line =
   loop 0
 
 
-let split_delim auto line  =
-  let rec loop pos =
+let split_delim ?(filter_empty=false) auto line  =
+  let rec loop_filter pos =
     try
       let b,e = search_forward auto line pos in
-      let id = String.sub line pos (b-pos) in
-      id::(loop e)
+      let len = b - pos in
+      if len > 0 then
+        let id = String.sub line pos len in
+        id::(loop_filter e)
+      else
+        loop_filter e
     with
-      Not_found -> [String.sub line pos (String.length line - pos)]
+      Not_found -> begin
+        let len = String.length line - pos in
+        if len > 0 then
+          [String.sub line pos len]
+        else
+          [] 
+      end
   in
-  loop 0
+  let rec loop_nofilter pos =
+    try
+      let b,e = search_forward auto line pos in
+      let len = b - pos in
+      let id = String.sub line pos len in
+      id::(loop_nofilter e)
+    with
+      Not_found -> begin
+        let len = String.length line - pos in
+        [String.sub line pos len]
+      end
+  in
+  if filter_empty then
+    loop_filter 0
+  else
+    loop_nofilter 0
 
 let replace auto line replacement =
   String.concat replacement (split_delim auto line)

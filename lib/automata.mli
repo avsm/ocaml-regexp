@@ -18,7 +18,7 @@ val exec_automaton : automaton -> string -> int -> int
 val match_string   : automaton -> string -> int -> int option
 val search_forward : automaton -> string -> int -> int * int
 val split_strings  : automaton -> string -> string list
-val split_delim    : automaton -> string -> string list
+val split_delim    : ?filter_empty:bool -> automaton -> string -> string list
 val replace        : automaton -> string -> string -> string
 val substitute     : automaton -> string -> (string -> string) -> string
 
